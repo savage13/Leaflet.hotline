@@ -380,6 +380,13 @@
 			outlineWidth: 1
 		},
 
+    initialize: function(latlngs, options) {
+        let pane = options.pane || 'tilePane';
+        options.renderer = renderer({pane: pane});
+        this._setLatLngs(latlngs);
+        L.setOptions(this, options);
+    },
+
 		getRGBForValue: function (value) {
 			return this._renderer._hotline.getRGBForValue(value);
 		},
